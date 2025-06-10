@@ -157,4 +157,9 @@ document.addEventListener('DOMContentLoaded', () => {
             imageModal.classList.remove('visible');
         });
     }
+
+    const form = document.getElementById('signup-form');
+    if (form) {
+        form.addEventListener('submit', handleSignupSubmit);
+    }
 });
