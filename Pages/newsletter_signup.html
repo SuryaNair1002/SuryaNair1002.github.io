@@ -1,22 +1,41 @@
 <!DOCTYPE html>
+<!-- The 'lang' attribute specifies the document's language, which is important for accessibility and search engines. -->
 <html lang="en">
 <head>
+    <!-- The charset meta tag specifies the character encoding for the document, UTF-8 is standard. -->
     <meta charset="UTF-8">
+    <!-- The viewport meta tag controls the layout on mobile browsers, ensuring the site is responsive. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- The title of the document, which appears in the browser tab. -->
     <title>GameDev Weekly - Newsletter Signup</title>
-    <!-- Link to the main external stylesheet -->
+    <!-- This link tag connects the HTML document to the external CSS stylesheet for styling. -->
     <link rel="stylesheet" href="../CSS/style.css">
 </head>
+<!-- The 'signup-page' class allows for specific styling of this page. The body itself contains the form and modal. -->
 <body class="signup-page">
 
+    <!-- This is the main container for the form, giving it a stylized box appearance. -->
     <div class="form-container">
         <h1>GameDev Weekly</h1>
         <p style="text-align:center;">Your weekly digest of game development news, tutorials, and insights. Sign up below!</p>
         
-        <form id="signup-form" action="https://script.google.com/macros/s/AKfycbwrzy4fiwKZ-IwcR-VlPACukJbtCS1Pq1YvHl4077Q9PHXstPZpVpvNyE_BTiUpPSQO/exec" method="post">
+        <!-- 
+            The <form> element defines where and how to send the user's data.
+            - id="signup-form": A unique identifier for the form, used by JavaScript.
+            - action="...": The URL where the form data will be sent.
+            - method="post": Specifies that the data should be sent using the HTTP POST method, which is standard for submitting data.
+            - onsubmit="...": Calls a JavaScript function when the user clicks the submit button. This allows for validation before submission.
+        -->
+        <form id="signup-form"
+              action="https://script.google.com/macros/s/AKfycbxB3V3XZG7pEsY1ueD0Ay-JEa-3KWoLEG9nvxlJ4djUEVqpTwqUGdCCUA1B6w15hfFa/exec"
+              method="post"
+              onsubmit="return handleSignupSubmit(event)">
             
+            <!-- Each 'form-group' div wraps a label and its corresponding input field for styling and organization. -->
             <div class="form-group">
+                <!-- The 'for' attribute of the label is linked to the 'id' of the input, which is good for accessibility. -->
                 <label for="first-name">First Name <span class="required-info">(required)</span></label>
+                <!-- A standard text input for the user's first name. 'maxlength' limits the number of characters. -->
                 <input type="text" id="first-name" name="firstName" maxlength="60">
             </div>
             
@@ -27,13 +46,16 @@
 
             <div class="form-group">
                 <label for="email">Email Address</label>
+                <!-- type="email" provides basic email format validation on some browsers. -->
                 <input type="email" id="email" name="email" maxlength="60">
             </div>
 
-            <!-- CORRECTED HTML Structure for horizontal layout and selection -->
+            <!-- This section contains the radio buttons for age range selection. -->
             <div class="form-group">
                 <label>Age Range</label>
                 <div class="radio-group">
+                    <!-- Each option is wrapped in a div for horizontal alignment and correct styling. -->
+                    <!-- The 'name' attribute is the same for all radio buttons, ensuring only one can be selected at a time. -->
                     <div>
                         <input type="radio" id="age1" name="ageRange" value="15-25">
                         <label for="age1">15-25</label>
@@ -57,10 +79,12 @@
                 </div>
             </div>
 
-            <!-- CORRECTED HTML Structure for horizontal layout and selection -->
+            <!-- This section contains the checkboxes for newsletter topics. -->
             <div class="form-group">
                 <label>Newsletter Content</label>
                 <div class="checkbox-group">
+                    <!-- The 'name' attribute is the same for all checkboxes, so they are grouped together. -->
+                    <!-- The 'value' attribute specifies the data that will be sent if the box is checked. -->
                     <div>
                         <input type="checkbox" id="topic1" name="topics" value="industry_news">
                         <label for="topic1">Industry News</label>
@@ -84,19 +108,26 @@
                 </div>
             </div>
 
+            <!-- A textarea for longer, multi-line user input. -->
             <div class="form-group">
                 <label for="comments">Comments / Suggestions</label>
                 <textarea id="comments" name="comments" cols="60" rows="3"></textarea>
             </div>
 
+            <!-- Contains the main action buttons for the form. -->
             <div class="form-buttons">
+                <!-- type="submit" is the default button for submitting the form. -->
                 <button type="submit">Submit</button>
+                <!-- type="reset" clears all user input from the form fields. -->
                 <button type="reset">Reset</button>
             </div>
         </form>
     </div>
 
-    <!-- The custom modal is styled by style.css -->
+    <!-- 
+        This is the custom modal for displaying alerts (e.g., welcome message or validation errors).
+        It is hidden by default and made visible by JavaScript.
+    -->
     <div id="alert-modal" class="modal-overlay">
         <div class="modal-content">
             <h3 id="modal-title"></h3>
@@ -105,7 +136,7 @@
         </div>
     </div>
     
-    <!-- Link to the single, external script file -->
+    <!-- This links to the single, external JavaScript file that controls all site interactivity. -->
     <script src="../JS/script.js"></script>
 
 </body>

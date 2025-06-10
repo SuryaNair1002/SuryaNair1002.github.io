@@ -30,17 +30,58 @@ function closeModal() {
 
 /**
  * Validates a form to ensure first and last names are not empty.
- * @param {Event} event - The form submission event.
+ * @param {HTMLFormElement} form - The form element to validate.
+ * @returns {boolean} - true if valid, false otherwise.
  */
-function validateNameFields(event) {
-    const form = event.target;
+function validateNameFields(form) {
     const firstName = form.querySelector('#first-name').value.trim();
     const lastName = form.querySelector('#last-name').value.trim();
 
     if (firstName === '' || lastName === '') {
-        event.preventDefault(); // Stop submission
         showModal('Validation Error', 'First Name and Last Name are required fields.');
+        return false;
     }
+    return true;
+}
+
+/**
+ * NEW: This function is called by the onsubmit attribute in newsletter_signup.html
+ * It handles validation and background submission for the newsletter form.
+ * @param {Event} event - The form submission event.
+ */
+function handleSignupSubmit(event) {
+    event.preventDefault(); // Stop the form from navigating to a new page
+
+    const form = event.target; // Get the form element that triggered the event
+
+    // First, validate the form
+    if (!validateNameFields(form)) {
+        return; // Stop if validation fails
+    }
+
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxB3V3XZG7pEsY1ueD0Ay-JEa-3KWoLEG9nvxlJ4djUEVqpTwqUGdCCUA1B6w15hfFa/exec"; 
+    
+    const submitButton = form.querySelector('button[type="submit"]');
+    submitButton.textContent = 'Submitting...';
+    submitButton.disabled = true;
+
+    // Submit data in the background using fetch
+    fetch(SCRIPT_URL, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
+        .then(() => {
+            // This runs after the data has been sent
+            showModal("Thank You!", "Form successfully submitted. You may now close this window.");
+            form.reset(); // Clear the form fields
+        })
+        .catch(error => {
+            // This catches network errors if the fetch fails
+            console.error('Error submitting form:', error);
+            showModal('Submission Failed', 'An error occurred. Please try again later.');
+        })
+        .finally(() => {
+            // This runs regardless of success or failure
+            submitButton.textContent = 'Submit';
+            submitButton.disabled = false; // Re-enable the button
+        });
 }
 
 
@@ -73,31 +114,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 800);
     }
 
-    // 3. Attach Validation Listener to Forms
+    // 3. Attach Validation Listener to the MAIN contact form (if it exists)
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', validateNameFields);
+        contactForm.addEventListener('submit', (event) => {
+            if (!validateNameFields(contactForm)) {
+                event.preventDefault();
+            }
+        });
     }
     
-    const signupForm = document.getElementById('signup-form');
-    if (signupForm) {
-        signupForm.addEventListener('submit', validateNameFields);
-    }
-
     // 4. Modal Close Button
     const validationModal = document.getElementById('validation-modal');
     if (validationModal) {
-        const closeButton = validationModal.querySelector('button');
-        if (closeButton) {
-            closeButton.addEventListener('click', closeModal);
-        }
+        validationModal.querySelector('button').addEventListener('click', closeModal);
     }
     const alertModal = document.getElementById('alert-modal');
     if (alertModal) {
-        const closeButton = alertModal.querySelector('button');
-        if (closeButton) {
-            closeButton.addEventListener('click', closeModal);
-        }
+        alertModal.querySelector('button').addEventListener('click', closeModal);
     }
 
     // 5. Signup Page Welcome Message
@@ -107,19 +141,18 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 6. Image Lightbox Functionality
     const imageModal = document.getElementById('image-modal');
-    const modalImage = document.getElementById('modal-image-content');
-    const expandableImages = document.querySelectorAll('.project-image');
+    if (imageModal) {
+        const modalImage = document.getElementById('modal-image-content');
+        const expandableImages = document.querySelectorAll('.image-container');
 
-    expandableImages.forEach(image => {
-        image.addEventListener('click', () => {
-            if (imageModal && modalImage) {
+        expandableImages.forEach(container => {
+            container.addEventListener('click', () => {
+                const image = container.querySelector('.project-image');
                 modalImage.src = image.src;
                 imageModal.classList.add('visible');
-            }
+            });
         });
-    });
 
-    if (imageModal) {
         imageModal.addEventListener('click', () => {
             imageModal.classList.remove('visible');
         });
