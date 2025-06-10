@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level Design - Surya Nair</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="icon" href="../Images/Favicon.png" type="image/png">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <h1 class="logo-text" data-text="SURYA NAIR">SURYA NAIR</h1>
+                <p class="sub-logo-text">Game Developer</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html" data-page="home">Home</a></li>
+                    <li><a href="resume.html" data-page="resume">Resume</a></li>
+                    <li><a href="gameplay_skills.html" data-page="gameplay_skills">Gameplay Design</a></li>
+                    <li><a href="leveldesign_skills.html" data-page="leveldesign_skills">Level Design</a></li>
+                    <li><a href="ai_skills.html" data-page="ai_skills">AI Programming</a></li>
+                    <li><a href="web_dev_skills.html" data-page="web_dev_skills">Web Skills</a></li>
+                    <li><a href="contact.html" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="content">
+            <!-- START of unique page content -->
+            <section id="level-design">
+                <h2 class="glitch" data-text="Level Design">Level Design</h2>
+                <p>For me, level design is the art of crafting experiences. I believe a great level tells a story through its environment, guides the player intuitively, and creates memorable challenges through careful pacing and layout. My designs prioritize player flow, strategic sightlines, and environmental storytelling.</p>
+                
+                <article class="project">
+                    <h3>Map: 'Aetheria District' (Cybernetic Echo)</h3>
+                    <p>A multiplayer map designed for a 5v5 team deathmatch mode. The goal was to create a fast-paced, asymmetrical map with significant verticality to complement the game's advanced movement mechanics.</p>
+                    <h4>Key Features:</h4>
+                    <ul>
+                        <li><strong>Vertical Gameplay:</strong> The map features multiple levels connected by rooftops, zip-lines, and wall-runnable surfaces, encouraging players to think in three dimensions.</li>
+                        <li><strong>Strategic Chokepoints:</strong> A central plaza acts as a high-value chokepoint, while narrow back alleys offer risky but rewarding flanking routes.</li>
+                        <li><strong>Environmental Storytelling:</strong> The level is littered with clues about the district's lore, from holographic graffiti depicting gang conflicts to abandoned market stalls.</li>
+                    </ul>
+                    <!-- Clickable image for the level design project -->
+                    <div class="image-container">
+                        <img src="../Images/AetheriaDistrict.png" alt="Aetheria District Top-Down Map" class="project-image">
+                        <div class="expand-text"><i class="fas fa-expand"></i> Click to Expand</div>
+                    </div>
+                </article>
+        
+                <article class="project">
+                    <h3>Dungeon: The Sunken Vault (Hell's Gate)</h3>
+                    <p>A procedurally generated dungeon floor with a focus on exploration and puzzle-solving. The design centers around a central vault that the player must find three keys to unlock, with each key hidden in a unique wing of the dungeon.</p>
+                    <h4>Key Features:</h4>
+                    <ul>
+                        <li><strong>Procedural Room Templates:</strong> Designed over 30 unique room templates with varied combat encounters, traps, and light puzzles that the procedural generator uses to build the level.</li>
+                        <li><strong>Gated Progression:</strong> Each of the three wings has a unique environmental theme (Flooded, Overgrown, Crystalline) and a mini-boss that must be defeated to acquire a key.</li>
+                        <li><strong>Dynamic Pacing:</strong> The generation algorithm ensures a clear pacing curve, starting with simple encounters and gradually introducing more complex threats as the player delves deeper.</li>
+                    </ul>
+                    <!-- Clickable image for the level design project -->
+                    <div class="image-container">
+                        <img src="../Images/Dungeon.png" alt="The Sunken Vault Screenshot" class="project-image">
+                        <div class="expand-text"><i class="fas fa-expand"></i> Click to Expand</div>
+                    </div>
+                </article>
+        
+            </section>
+            <!-- END of unique page content -->
+        </main>
+    </div>
+
+    <footer>
+        <div class="social-icons">
+                <a href="https://www.linkedin.com/in/surya-nair-980b522b8" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/SuryaNair1002?tab=overview&from=2025-06-01&to=2025-06-09" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://discord.gg/dAm7mzSR" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
+        </div>
+            <p class="copyright">&copy; 2025 Surya Nair. All rights reserved.</p>
+    </footer>
+    <!-- Image Modal for Fullscreen View -->
+    <div id="image-modal" class="image-modal-overlay">
+        <img id="modal-image-content" src="" alt="Expanded Project Image">
+    </div>
+
+    <script src="../JS/script.js"></script>
+</body>
+</html>

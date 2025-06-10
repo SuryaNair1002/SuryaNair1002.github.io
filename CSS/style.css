@@ -1,0 +1,909 @@
+
+/*
+================================================
+TABLE OF CONTENTS
+------------------------------------------------
+1.  Imports & General Styles
+    - @import
+    - General Body Styles
+    - Container Layout
+
+2.  Header & Navigation
+    - Header Layout
+    - Logo & Flicker Animation
+    - Navigation Link Styles (Cyber-Brackets)
+
+3.  Main Content & Sections
+    - Main Content Area
+    - Hero Section
+    - General Section & Project Styles
+
+4.  Component Styles
+    - Buttons (Download, Hero)
+    - Skills Table
+    - Web Dev Skills Grid
+    - Glitch Effect
+
+5.  Footer Styles
+    - Footer Layout
+    - Social Icons
+
+6.  Form Styles
+    - Form Container & Groups
+    - Text Inputs & Textarea
+    - Custom Radio/Checkbox Styles
+    - Form Buttons
+
+7.  Modal & Lightbox Styles
+    - Image Lightbox/Modal
+    - Custom Alert Modal
+
+8.  Responsive Design
+    - Media Queries for Mobile
+    - Adjustments for Smaller Screens
+
+9.  PRINT STYLES
+   - These styles are only applied when the user prints the page.
+   - They are designed to save ink and provide a clean, readable layout.
+================================================
+*/
+
+
+/* --- 1. Imports & General Styles --- */
+
+
+/* Import Icons to display various logos */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+/* General Body Styles */
+body {
+    color: #ffffff;    /* pure white text for contrast and ease of reading */
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    animation: bodyFadeIn 1s forwards;
+    background: linear-gradient(135deg, #000000, #000000e0); /* Dark gradient background fading to a lighter tone */
+    padding-top: 100px;
+}
+
+/* Special body style for the signup page */
+body.signup-page {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Keyframes for body fade-in animation */
+@keyframes bodyFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Default Container Styles used for consistent layout */
+.container {
+    padding: 20px 40px;
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+
+/* 2. Header and Navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(57, 255, 20, 0.3);   /* Neon green border at bottom of header allowing the contents below to be distinct */
+    flex-shrink: 0;
+    background-color: #000000;  /* Dark background for header */
+    padding: 20px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+/* Logo container for developer name and title */
+.logo-container {
+    text-align: left;
+}
+
+.logo-text {
+    font-size: 2.5em;
+    color: #37ff14d5;
+    margin: 0;
+    position: relative;
+    text-shadow: 0 0 5px #39ff14, 0 0 10px #37ff14b8, 0 0 15px #37ff147e; /* Neon green glow effect */
+}
+
+
+.logo-text::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-shadow: 2px 2px 2px rgba(255,0,0,0.5);
+    clip-path: inset(50% 0 50% 0);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse; /* Glitch effect animation */
+    color: #ff00de; /* Pink color for glitch effect */
+}
+
+/* Sub-logo text styles (Game Developer) title */
+.sub-logo-text {
+    color: #8aff7d;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-left: 10px;
+}
+
+nav a {
+    color: #dddddd;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+nav a::before,
+nav a::after {
+    content: '[';
+    position: absolute;
+    top: 50%;
+    color: #39ff14;
+    font-weight: bold;
+    opacity: 0;
+    transition: all 0.4s ease;
+    text-shadow: 0 0 5px #39ff14;
+}
+nav a::after {
+    content: ']';
+    right: 0;
+    transform: translateY(-50%) translateX(10px);
+}
+nav a::before {
+    left: 0;
+    transform: translateY(-50%) translateX(-10px);
+}
+
+nav a:hover::before, nav a.active::before,
+nav a:hover::after, nav a.active::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+nav a:hover, nav a.active {
+    color: #39ff14;
+}
+
+
+/* 3. Main Content & Sections */
+main {
+    padding: 40px 0;
+    flex-grow: 1;
+}
+
+/* Hero Section Styles */
+.hero-section {
+    background: url('../Images/background.jpeg') no-repeat center center;
+    background-size: cover;
+    padding: 100px 40px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(57, 255, 20, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 50vh;
+    box-shadow: inset 0 0 100px #0a0a14;
+}
+
+/* General Section and Project Article Styles */
+section, .project, .contact-methods, .resume-section {
+    background: rgba(12, 14, 15, 0.5);
+    border: 0.5px solid #000000;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #39ff14;
+    border-bottom: 2px solid rgba(57, 255, 20, 0.4);
+    padding-bottom: 10px;
+    margin-top: 0;
+    font-size: 2.5em;
+}
+
+h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #39ff14;
+    margin-top: 0;
+}
+
+h4 {
+    font-family: 'Orbitron', sans-serif;
+    color: #8aff7d;
+    margin-bottom: 10px;
+}
+
+p {
+    line-height: 1.8;
+    font-size: 1.1em;
+    color: #ffffff;
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.media-placeholder {
+    background-color: #00000044;
+    border: 1px dashed rgba(57, 255, 20, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+a {
+    color: #61dafb;
+    text-decoration: none;
+}
+a:hover {
+    text-shadow: 0 0 5px #61dafb;
+}
+
+/* 4. Component Styles */
+
+.download-section {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 3px;
+}
+.download-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 30px;
+    border: 2px solid #39ff14;
+    color: #39ff14;
+    text-decoration: none !important;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #39ff14, inset 0 0 10px #39ff14;
+}
+.download-button:hover {
+    background-color: #39ff14;
+    color: #0a0a14;
+    text-shadow: none;
+    box-shadow: 0 0 20px #39ff14;
+}
+
+
+/* --- Table Styles --- */
+.skills-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.skills-table th, .skills-table td {
+    border: 1px solid rgba(57, 255, 20, 0.3);
+    padding: 15px;
+    text-align: left;
+}
+
+.skills-table th {
+    background-color: rgba(57, 255, 20, 0.1);
+    font-family: 'Orbitron', sans-serif;
+    color: #39ff14;
+}
+
+.skills-table td:first-child {
+    font-weight: bold;
+    color: #8aff7d;
+    width: 30%;
+}
+
+
+/* Glitch effect for titles */
+.glitch {
+    font-family: 'Orbitron', sans-serif;
+    color: #8aff7d;
+    position: relative;
+    user-select: none;
+}
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    overflow: hidden;
+}
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00de;
+    clip-path: inset(50% 0 51% 0);
+    animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 #00ffff, 2px 2px #ff00de;
+    clip-path: inset(50% 0 51% 0);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip-path: inset(44% 0 54% 0); }
+    100% { clip-path: inset(52% 0 46% 0); }
+}
+@keyframes glitch-anim-2 {
+    0% { clip-path: inset(18% 0 83% 0); }
+    100% { clip-path: inset(84% 0 15% 0); }
+}
+
+
+/* 5. Footer Styles */
+
+footer {
+    padding: 20px 0;
+    text-align: center;
+    flex-shrink: 0;
+    background-color: #000000;
+    position: relative;
+    z-index: 20;
+    width: 100vw;
+}
+
+.social-icons {
+    margin-bottom: 15px;
+}
+
+.social-icons a {
+    font-size: 1.8em;
+    color: #c0c0c0;
+    margin: 0 15px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.social-icons a:hover {
+    color: #39ff14;
+    text-shadow: 0 0 8px #39ff14;
+    transform: scale(1.1);
+}
+
+.copyright {
+    font-size: 0.9em;
+    color: #888;
+    margin: 0;
+}
+
+/* --- Web Dev Skills Grid --- */
+.web-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.skill-card {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(57, 255, 20, 0.2);
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(57, 255, 20, 0.2);
+}
+
+.skill-card i {
+    font-size: 3em;
+    color: #39ff14; /* Neon green */
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px #39ff14;
+}
+
+.skill-card h4 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.1em;
+}
+
+/* 6. --- Form Styles --- */
+.form-container {
+    background: rgba(10, 20, 30, 0.8);
+    border: 1px solid rgba(57, 255, 20, 0.3);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 25px rgba(57, 255, 20, 0.1);
+    max-width: 800px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-container h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #39ff14;
+    text-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14;
+    text-align: center;
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-family: 'Orbitron', sans-serif;
+    color: #8aff7d;
+}
+
+.form-group label .required-info {
+    color: #888;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #00000044;
+    border: 1px solid rgba(57, 255, 20, 0.3);
+    border-radius: 4px;
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1em;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #39ff14;
+    box-shadow: 0 0 10px #39ff14;
+}
+
+/* Custom Radio/Checkbox Styles */
+.radio-group, .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.radio-group div, .checkbox-group div {
+    display: flex;
+    align-items: center;
+}
+
+.radio-group label, .checkbox-group label {
+    cursor: pointer;
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    display: inline-flex;
+    align-items: center;
+}
+
+.radio-group input, .checkbox-group input {
+    display: none;
+}
+
+.radio-group label::before, .checkbox-group label::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(57, 255, 20, 0.5);
+    margin-right: 10px;
+    transition: all 0.2s ease;
+}
+
+.radio-group label::before {
+    border-radius: 50%;
+}
+.checkbox-group label::before {
+    border-radius: 3px;
+}
+
+.radio-group input:checked + label::before,
+.checkbox-group input:checked + label::before {
+    background-color: #39ff14;
+    box-shadow: 0 0 8px #39ff14;
+}
+
+/* Button Styles */
+.form-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.form-buttons button {
+    border: 2px solid #39ff14;
+    color: #39ff14;
+    box-shadow: 0 0 10px #39ff14, inset 0 0 10px #39ff14;
+    padding: 12px 30px;
+    background-color: transparent;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.form-buttons button:hover {
+    background-color: #39ff14;
+    color: #0a0a14;
+    box-shadow: 0 0 20px #39ff14;
+}
+
+
+/* --- 7. Image Lightbox/Modal Styles --- */
+.image-container {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.project-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid rgba(57, 255, 20, 0.2);
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.image-container:hover .project-image {
+    transform: scale(1.05);
+}
+
+.expand-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: #ffffff;
+    padding: 20px 0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 8px;
+}
+
+.image-container:hover .expand-text {
+    opacity: 1;
+}
+
+.image-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    backdrop-filter: blur(8px);
+}
+
+.image-modal-overlay.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.image-modal-overlay img {
+    max-width: 90vw;
+    max-height: 90vh;
+    box-shadow: 0 0 50px rgba(57, 255, 20, 0.4);
+    border: 2px solid rgba(57, 255, 20, 0.5);
+    border-radius: 4px;
+    transform: scale(0.8);
+    transition: transform 0.4s ease;
+}
+
+.image-modal-overlay.visible img {
+    transform: scale(1);
+}
+
+
+/* Custom Modal Alert Styles */
+.modal-overlay {
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.modal-overlay.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-content {
+    background: rgba(10, 20, 30, 0.9);
+    border: 1px solid rgba(57, 255, 20, 0.5);
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 0 25px rgba(57, 255, 20, 0.2);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.visible .modal-content {
+    transform: scale(1);
+}
+
+.modal-content h3 {
+    margin-top: 0;
+}
+
+.modal-content p {
+    margin-bottom: 30px;
+}
+
+/* --- 8. Responsive Design --- */
+
+
+/* Media Queries for Mobile */
+
+@media (max-width: 1200px) {
+    header {
+        padding: 20px;
+    }
+    
+    .logo-text {
+        font-size: 2em;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav li {
+        margin: 5px 0;
+    }
+    
+    .container {
+        padding: 20px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 0;
+    }
+    
+    header {
+        position: static;
+        padding-left: 20px;
+        padding-right: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    footer {
+        margin-left: -20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+    nav li {
+        margin: 10px 0;
+    }
+    .glitch {
+        font-size: 2em;
+    }
+    .container {
+      padding: 20px;
+    }
+}
+/* --- 9. PRINT STYLES --- */
+/* These styles are only applied when the user prints the page.
+   They are designed to save ink and provide a clean, readable layout. */
+
+@media print {
+
+    body {
+        /* Reset background and text colors for high contrast on paper */
+        background: #ffffff !important;
+        color: #000000 !important;
+        /* Remove extra padding added for the fixed header */
+        padding-top: 0 !important;
+        /* Use a standard serif font for better readability on paper */
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 12pt;
+    }
+
+    /* --- Element Visibility --- */
+    /* Hide elements that are not useful on a printed page */
+    header,
+    footer,
+    .scanlines,
+    .download-button,
+    .hero-link,
+    .form-buttons,
+    .media-placeholder,
+    iframe,
+    nav, /* Hide the entire navigation block */
+    .image-container, /* Hide the container for project images */
+    .project-image, /* Hide project images themselves */
+    #image-modal, /* Hide the fullscreen image modal */
+    .hero-section, /* Hide the decorative hero section */
+    .modal-overlay, /* Hide form validation modals */
+    .download-section { /* NEW: Hide the download resume section */
+        display: none !important;
+    }
+
+    /* --- Layout Adjustments --- */
+    /* Ensure the main container and content take up the full width */
+    .container, main {
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        min-height: auto !important;
+    }
+
+    /* Remove container styling to only show content */
+    section, .project, .contact-methods, .resume-section {
+        border: none !important; /* Hide container borders */
+        box-shadow: none !important;
+        background: none !important;
+        padding: 0 0 20px 0 !important; /* Hide container padding but add space below */
+        margin-bottom: 20px;
+        /* Prevent sections from breaking across pages where possible */
+        page-break-inside: avoid;
+    }
+
+    /* --- Text and Link Styles --- */
+    /* Ensure all text is black and readable */
+    h1, h2, h3, h4, p, li, a {
+        color: #000 !important;
+        text-shadow: none !important;
+    }
+    
+    .glitch, .logo-text {
+        border-bottom: 2px solid #000;
+        color: #000 !important;
+        animation: none !important; /* Disable animations */
+    }
+    
+    .glitch::before, .glitch::after, .logo-text::before {
+        display: none; /* Hide glitch effect elements */
+    }
+    
+    /* Make links visible and show the full URL for reference */
+    a {
+        text-decoration: underline;
+    }
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #555;
+    }
+    /* Don't show the URL for internal page links or javascript links */
+    a[href^="#"]::after, a[href^="javascript:"]::after {
+        content: "";
+    }
+    
+    /* NEW: Remove underline and extra info from contact links */
+    #contact-info a {
+        text-decoration: none !important;
+    }
+    #contact-info a[href]::after {
+        content: ""; /* Hides the URL text */
+    }
+
+
+    /* --- Component Styles for Print --- */
+    .skills-table, .skills-table th, .skills-table td {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+        color: #000 !important; /* NEW: Ensure all table text is black */
+    }
+    .skills-table th {
+        background-color: #eee !important;
+    }
+    
+    .web-skills-grid {
+        grid-template-columns: repeat(3, 1fr); /* Force a simple 3-column layout */
+    }
+    
+    .skill-card {
+        border: 1px solid #ccc;
+        box-shadow: none;
+    }
+    
+    .skill-card i {
+        display: none; /* Hide icons to save ink */
+    }
+    
+    /* --- Form Styles for Print --- */
+    /* Hide the form itself, as it's not interactive on paper */
+    form {
+        display: none;
+    }
+
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Surya Nair">
+    <meta name="description" content="Contact page for Surya Nair, a game developer. Get in touch for project discussions, creative ideas, or opportunities.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Surya Nair</title>
+    <!-- Font Awesome is now imported via the CSS file -->
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="icon" href="../Images/Favicon.png" type="image/png">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <h1 class="logo-text" data-text="SURYA NAIR">SURYA NAIR</h1>
+                <p class="sub-logo-text">Game Developer</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html" data-page="home">Home</a></li>
+                    <li><a href="resume.html" data-page="resume">Resume</a></li>
+                    <li><a href="gameplay_skills.html" data-page="gameplay_skills">Gameplay Design</a></li>
+                    <li><a href="leveldesign_skills.html" data-page="leveldesign_skills">Level Design</a></li>
+                    <li><a href="ai_skills.html" data-page="ai_skills">AI Programming</a></li>
+                    <li><a href="web_dev_skills.html" data-page="web_dev_skills">Web Skills</a></li>
+                    <li><a href="contact.html" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="content">
+            <!-- START of unique page content -->
+            <section id="contact">
+                <h2 class="glitch" data-text="Contact Me">Contact Me</h2>
+                <p>I'm always open to discussing new projects, creative ideas, or opportunities. Please use the form below to get in touch.</p>
+                
+                <article class="contact-methods">
+                    <form id="contact-form" action="http://csusap.csu.edu.au/cgi-bin/echo_form" method="post">
+                        
+                        <div class="form-group">
+                            <label for="first-name">First Name <span class="required-info">(required)</span></label>
+                            <input type="text" id="first-name" name="firstName" maxlength="60">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="last-name">Last Name <span class="required-info">(required)</span></label>
+                            <input type="text" id="last-name" name="lastName" maxlength="60">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" maxlength="60">
+                        </div>
+
+                        <!-- CORRECTED HTML Structure for horizontal layout and selection -->
+                        <div class="form-group">
+                            <label>Age Range</label>
+                            <div class="radio-group">
+                                <div>
+                                    <input type="radio" id="age1" name="ageRange" value="15-25">
+                                    <label for="age1">15-25</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="age2" name="ageRange" value="26-35">
+                                    <label for="age2">26-35</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="age3" name="ageRange" value="36-45">
+                                    <label for="age3">36-45</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="age4" name="ageRange" value="46-55">
+                                    <label for="age4">46-55</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="age5" name="ageRange" value="55+">
+                                    <label for="age5">55+</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CORRECTED HTML Structure for horizontal layout and selection -->
+                        <div class="form-group">
+                            <label>Area of Interest</label>
+                            <div class="checkbox-group">
+                                <div>
+                                    <input type="checkbox" id="service1" name="interest" value="gameplay">
+                                    <label for="service1">Gameplay Design</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="service2" name="interest" value="level">
+                                    <label for="service2">Level Design</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="service3" name="interest" value="ai">
+                                    <label for="service3">AI Programming</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="service4" name="interest" value="recruitment">
+                                    <label for="service4">Recruitment/Job Opportunity</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="service5" name="interest" value="general">
+                                    <label for="service5">General Inquiry</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" cols="60" rows="5"></textarea>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="submit">Submit</button>
+                            <button type="reset">Reset</button>
+                        </div>
+                    </form>
+                </article>
+            </section>
+            <!-- END of unique page content -->
+        </main>
+        
+    </div>
+
+    <!-- Custom Modal for Validation Alert -->
+    <div id="validation-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="modal-title">Validation Error</h3>
+            <p id="modal-message"></p>
+            <button type="button">Close</button>
+        </div>
+    </div>
+
+     <footer>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/surya-nair-980b522b8" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/SuryaNair1002?tab=overview&from=2025-06-01&to=2025-06-09" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://discord.gg/dAm7mzSR" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
+            </div>
+            <p class="copyright">&copy; 2025 Surya Nair. All rights reserved.</p>
+    </footer>
+
+    <script src="../JS/script.js"></script>
+</body>
+</html>

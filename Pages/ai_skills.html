@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Programming - Surya Nair</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="icon" href="../Images/Favicon.png" type="image/png">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <h1 class="logo-text" data-text="SURYA NAIR">SURYA NAIR</h1>
+                <p class="sub-logo-text">Game Developer</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html" data-page="home">Home</a></li>
+                    <li><a href="resume.html" data-page="resume">Resume</a></li>
+                    <li><a href="gameplay_skills.html" data-page="gameplay_skills">Gameplay Design</a></li>
+                    <li><a href="leveldesign_skills.html" data-page="leveldesign_skills">Level Design</a></li>
+                    <li><a href="ai_skills.html" data-page="ai_skills">AI Programming</a></li>
+                    <li><a href="web_dev_skills.html" data-page="web_dev_skills">Web Skills</a></li>
+                    <li><a href="contact.html" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="content">
+            <!-- START of unique page content -->
+            <section id="ai-programming">
+                <h2 class="glitch" data-text="AI Programming">AI Programming</h2>
+                <p>I believe that great AI is the cornerstone of a living, breathing game world. My work in AI focuses on creating believable, challenging, and optimized agents that enhance the player's experience, rather than simply acting as obstacles. I have extensive experience with Behavior Trees, State Machines, and custom pathfinding solutions.</p>
+                
+                <article class="project">
+                    <h3>System: Dynamic Squad Tactics (Cybernetic Echo)</h3>
+                    <p>For this project, I designed and implemented the AI for squads of enemy soldiers. The goal was to make them feel like a coordinated unit that could react to the player's high-mobility playstyle.</p>
+                    <h4>Key Features:</h4>
+                    <ul>
+                        <li><strong>Behavior Trees:</strong> Utilized Unreal Engine's Behavior Trees to create complex decision-making logic. AI agents can dynamically switch between offensive, defensive, and support roles.</li>
+                        <li><strong>Cover System:</strong> Agents can identify and utilize cover points in the environment, peeking out to fire and suppressing the player's position.</li>
+                        <li><strong>Flanking & Pincer Maneuvers:</strong> Squad members communicate their positions and intentions, allowing them to organize and execute flanking maneuvers on the player.</li>
+                    </ul>
+                    <!-- Clickable image for the AI programming project -->
+                    <div class="image-container">
+                        <img src="../Images/AI_interaction.png" alt="AI Interaction" class="project-image">
+                        <div class="expand-text"><i class="fas fa-expand"></i> Click to Expand</div>
+                    </div>
+                </article>
+        
+                <article class="project">
+                    <h3>System: Creature Ecosystem (Aetherion's Gate)</h3>
+                    <p>Designed a simple AI ecosystem for the procedurally generated dungeons, where different monster types have unique behaviors and interactions with each other and the environment.</p>
+                    <h4>Key Features:</h4>
+                    <ul>
+                        <li><strong>Finite State Machines (FSM):</strong> Used a lightweight FSM for creature AI, defining states such as 'Idle', 'Patrol', 'Chase', and 'Special Ability', which was highly performant for a roguelike with many agents.</li>
+                        <li><strong>Faction System:</strong> Implemented a simple faction system, allowing for infighting between different monster types, which the player can use to their advantage.</li>
+                        <li><strong>Environmental Awareness:</strong> AI agents are able to recognize and react to environmental hazards, such as avoiding traps they have seen the player trigger.</li>
+                    </ul>
+                    <!-- Clickable image for the AI programming project -->
+                    <div class="image-container">
+                        <img src="https://placehold.co/800x250/0a0a8/ffffff?text=Work in Progress (stay tuned)" alt="Work In Progress Project" class="project-image">
+                    </div>
+                </article>
+        
+            </section>
+            <!-- END of unique page content -->
+        </main>
+        
+    </div>
+
+    <footer>
+        <div class="social-icons">
+                <a href="https://www.linkedin.com/in/surya-nair-980b522b8" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/SuryaNair1002?tab=overview&from=2025-06-01&to=2025-06-09" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://discord.gg/dAm7mzSR" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
+        </div>
+            <p class="copyright">&copy; 2025 Surya Nair. All rights reserved.</p>
+    </footer>
+
+    <!-- Image Modal for Fullscreen View -->
+    <div id="image-modal" class="image-modal-overlay">
+        <img id="modal-image-content" src="" alt="Expanded Project Image">
+    </div>
+
+    <script src="../JS/script.js"></script>
+</body>
+</html>

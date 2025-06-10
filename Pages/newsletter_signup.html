@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameDev Weekly - Newsletter Signup</title>
+    <!-- Link to the main external stylesheet -->
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body class="signup-page">
+
+    <div class="form-container">
+        <h1>GameDev Weekly</h1>
+        <p style="text-align:center;">Your weekly digest of game development news, tutorials, and insights. Sign up below!</p>
+        
+        <form id="signup-form" action="https://formspree.io/f/xeokapbr" method="post">
+            
+            <div class="form-group">
+                <label for="first-name">First Name <span class="required-info">(required)</span></label>
+                <input type="text" id="first-name" name="firstName" maxlength="60">
+            </div>
+            
+            <div class="form-group">
+                <label for="last-name">Last Name <span class="required-info">(required)</span></label>
+                <input type="text" id="last-name" name="lastName" maxlength="60">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" maxlength="60">
+            </div>
+
+            <!-- CORRECTED HTML Structure for horizontal layout and selection -->
+            <div class="form-group">
+                <label>Age Range</label>
+                <div class="radio-group">
+                    <div>
+                        <input type="radio" id="age1" name="ageRange" value="15-25">
+                        <label for="age1">15-25</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="age2" name="ageRange" value="26-35">
+                        <label for="age2">26-35</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="age3" name="ageRange" value="36-45">
+                        <label for="age3">36-45</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="age4" name="ageRange" value="46-55">
+                        <label for="age4">46-55</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="age5" name="ageRange" value="55+">
+                        <label for="age5">55+</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CORRECTED HTML Structure for horizontal layout and selection -->
+            <div class="form-group">
+                <label>Newsletter Content</label>
+                <div class="checkbox-group">
+                    <div>
+                        <input type="checkbox" id="topic1" name="topics" value="industry_news">
+                        <label for="topic1">Industry News</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="topic2" name="topics" value="programming">
+                        <label for="topic2">Programming Tutorials</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="topic3" name="topics" value="art_design">
+                        <label for="topic3">Art & Design</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="topic4" name="topics" value="jobs">
+                        <label for="topic4">Job Postings</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="topic5" name="topics" value="indie">
+                        <label for="topic5">Indie Spotlight</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Comments / Suggestions</label>
+                <textarea id="comments" name="comments" cols="60" rows="3"></textarea>
+            </div>
+
+            <div class="form-buttons">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- The custom modal is styled by style.css -->
+    <div id="alert-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="modal-title"></h3>
+            <p id="modal-message"></p>
+            <button type="button">Close</button>
+        </div>
+    </div>
+    
+    <!-- Link to the single, external script file -->
+    <script src="../JS/script.js"></script>
+
+</body>
+</html>

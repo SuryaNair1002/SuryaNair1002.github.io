@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gameplay Design - Surya Nair</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="icon" href="../Images/Favicon.png" type="image/png">
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <h1 class="logo-text" data-text="SURYA NAIR">SURYA NAIR</h1>
+                <p class="sub-logo-text">Game Developer</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html" data-page="home">Home</a></li>
+                    <li><a href="resume.html" data-page="resume">Resume</a></li>
+                    <li><a href="gameplay_skills.html" data-page="gameplay_skills">Gameplay Design</a></li>
+                    <li><a href="leveldesign_skills.html" data-page="leveldesign_skills">Level Design</a></li>
+                    <li><a href="ai_skills.html" data-page="ai_skills">AI Programming</a></li>
+                    <li><a href="web_dev_skills.html" data-page="web_dev_skills">Web Skills</a></li>
+                    <li><a href="contact.html" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="content">
+            <!-- START of unique page content -->
+            <section id="gameplay-design">
+                <h2 class="glitch" data-text="Gameplay Design">Gameplay Design</h2>
+                <p>My philosophy revolves around creating intuitive, engaging, and memorable gameplay loops. I focus on player agency, clear feedback, and systems that are easy to learn but difficult to master. A great gameplay system should feel like an extension of the player's will, empowering them to express themselves through skillful play. Below are some examples of my work in gameplay design and programming.</p>
+                
+                <article class="project">
+                    <h3>Project: Cybernetic Echo</h3>
+                    <p>A fast-paced, third-person action game set in a dystopian future. My primary role was designing and implementing the core combat and movement systems. The main challenge was to create a fluid and responsive player experience where high-speed traversal and combat were not separate modes, but a single, unified system.</p>
+                    <h4>Key Features & Contributions:</h4>
+                    <ul>
+                        <li><strong>Momentum-based Movement:</strong> Designed a parkour system including wall-running, sliding, and grappling. The system was built to preserve and convert momentum between actions, allowing skilled players to chain maneuvers together seamlessly without losing speed.</li>
+                        <li><strong>Hybrid Combat System:</strong> Implemented a flexible combat model that blends high-speed melee attacks with strategic ranged gunplay. I developed a "weapon-swap cancel" system that allows players to cancel the recovery frames of a melee attack by switching to their firearm, enabling advanced, high-APM combos.</li>
+                        <li><strong>Modular Ability System (C++ & Blueprints):</strong> Created a data-driven ability system in C++ with a Blueprint-friendly interface. This allowed designers to easily create, modify, and balance new player abilities (e.g., short-range teleport, concussion blast) without programmer intervention, significantly speeding up the iteration process.</li>
+                        <li><strong>Player Feedback & Animation:</strong> Worked closely with animators to ensure every action was supported by clear visual and audio feedback. Implemented procedural animation blending for smooth transitions between running, sliding, and aiming down sights.</li>
+                    </ul>
+                    <!-- Placeholder replaced with a clickable image -->
+                    <div class="image-container">
+                        <img src="../Images/cybernetic.png" alt="Cybernetic Echo Gameplay" class="project-image">
+                        <div class="expand-text"><i class="fas fa-expand"></i> Click to Expand</div>
+                    </div>
+                </article>
+
+                <article class="project">
+                    <h3>Project: Aetherion's Gate</h3>
+                    <p>A top-down roguelike where players combine elemental spells to create powerful new effects. I was responsible for the core spell-crafting system and the procedural generation of enemy encounters, focusing on emergent gameplay and strategic depth.</p>
+                    <h4>Key Features & Contributions:</h4>
+                    <ul>
+                        <li><strong>Dynamic Spell Fusion:</strong> Developed the logic for combining base elements (Fire, Water, Earth, Air) into over 50 unique spells with distinct effects and synergies. For example: Fire + Earth creates a 'Magma Bomb' that leaves a burning patch on the ground, while Water + Air creates a 'Chain Lightning' effect that arcs between enemies.</li>
+                        <li><strong>Procedural Encounter Director:</strong> Wrote an AI director that dynamically adjusts the difficulty and type of enemy encounters. Instead of just scaling health/damage, it analyzes the player's most-used spells and spawns enemy types that provide a strategic counter, encouraging players to diversify their tactics.</li>
+                        <li><strong>Risk/Reward Mechanics:</strong> Designed resource management systems and 'Cursed' items that offer great power at a significant cost (e.g., a powerful wand that also drains the player's health with each use). This created compelling strategic decisions for players on every run.</li>
+                    </ul>
+                    <div class="image-container">
+                        <img src="../Images/aether.jpeg" alt="Aetherion's Gate Gameplay" class="project-image">
+                        <div class="expand-text"><i class="fas fa-expand"></i> Click to Expand</div>
+                    </div>
+                </article>
+
+            </section>
+            <!-- END of unique page content -->
+        </main>
+        
+    </div>
+
+     <footer>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/surya-nair-980b522b8" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/SuryaNair1002?tab=overview&from=2025-06-01&to=2025-06-09" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://discord.gg/dAm7mzSR" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
+            </div>
+            <p class="copyright">&copy; 2025 Surya Nair. All rights reserved.</p>
+    </footer>
+
+    <div id="image-modal" class="image-modal-overlay">
+        <img id="modal-image-content" src="" alt="Expanded Gameplay Image">
+    </div>
+
+    <script src="../JS/script.js"></script>
+</body>
+</html>
