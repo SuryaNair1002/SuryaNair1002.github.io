@@ -10,7 +10,7 @@ TABLE OF CONTENTS
 
 2.  Header & Navigation
     - Header Layout
-    - Logo & Flicker Animation
+    - Logo
     - Navigation Link Styles (Cyber-Brackets)
 
 3.  Main Content & Sections
@@ -162,7 +162,7 @@ nav li {
 nav a {
     color: #dddddd;
     text-decoration: none;
-    font-family: 'Orbitron', sans-serif;
+    font-family: sans-serif;
     font-size: 1.1em;
     padding: 10px 20px;
     transition: color 0.3s ease;
@@ -233,7 +233,7 @@ section, .project, .contact-methods, .resume-section {
 }
 
 h2 {
-    font-family: 'Orbitron', sans-serif;
+    font-family: sans-serif;
     color: #39ff14;
     border-bottom: 2px solid rgba(57, 255, 20, 0.4);
     padding-bottom: 10px;
@@ -242,13 +242,13 @@ h2 {
 }
 
 h3 {
-    font-family: 'Orbitron', sans-serif;
+    font-family: sans-serif;
     color: #39ff14;
     margin-top: 0;
 }
 
 h4 {
-    font-family: 'Orbitron', sans-serif;
+    font-family: sans-serif;
     color: #8aff7d;
     margin-bottom: 10px;
 }
@@ -280,11 +280,11 @@ li {
 }
 
 a {
-    color: #61dafb;
+    color: #75fb61;
     text-decoration: none;
 }
 a:hover {
-    text-shadow: 0 0 5px #61dafb;
+    text-shadow: 0 0 5px #75fb61;
 }
 
 /* 4. Component Styles */
@@ -344,7 +344,6 @@ a:hover {
 
 /* Glitch effect for titles */
 .glitch {
-    font-family: 'Orbitron', sans-serif;
     color: #8aff7d;
     position: relative;
     user-select: none;
